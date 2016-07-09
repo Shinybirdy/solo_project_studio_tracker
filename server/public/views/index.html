@@ -6,23 +6,32 @@
     <script src="/vendors/angular.min.js" type="text/javascript"></script>
     <script src="/vendors/angular.min.js.map" type="text/javascript"></script>
     <script src="/vendors/angular-route/angular-route.min.js" type="text/javascript"></script>
-    <script src="/assets/clientapp.js" type="text/javascript"></script>
+    <script src="/scripts/clientapp.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="/vendors/bootstrap.min.css.map" />
     <link rel="stylesheet" href="/stylez/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English:400,400italic" rel="stylesheet" type="text/css">
   </head>
   <body>
-    
+    <div ng-include = "partials/header.html">
+      </div>
+    <div ng-controller = "logInController" class = "row row-centered">
+
+
     <h3>The Music Studio Tracker</h3><br />
     <p>for</p><br/>
-    <h2>Miss Ima Brecka-Euphingers</h2><br />
+    <h3>Miss Ima Brecka-Euphingers</h3><br />
     <h1>School of Musicianship and Beauty</h1><br />
     <p>for</p><br />
-    <h4>Adults Seeking Purpose in Life</h4><br />
+    <h2>Adults Seeking Purpose in Life</h2><br />
     <p>and</p>
     <h1>Talented Orphans</h1>
-    <div id="login">
+
+    <input ng-model="userName" type="text" name="userName" value="userName" placeholder="User Name" /><br />
+    <input ng-model="password" type="text" name="password" value="password" placeholder="Password"/><br />
+    <button ng-click="getLogInCreds" type="button" name="logInButton" value="logInButton">Submit!</button>
+
 
     </div>
 
