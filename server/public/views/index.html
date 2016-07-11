@@ -2,7 +2,7 @@
 <html ng-app = "myApp">
   <head>
     <meta charset="utf-8">
-    <title>Miss Irma's Music Studio Tracker</title>
+    <title>Music Studio Tracker</title>
     <script src="/vendors/angular.min.js" type="text/javascript"></script>
     <script src="/vendors/angular.min.js.map" type="text/javascript"></script>
     <script src="/vendors/angular-route/angular-route.min.js" type="text/javascript"></script>
@@ -14,26 +14,33 @@
     <link href="https://fonts.googleapis.com/css?family=IM+Fell+English:400,400italic" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div ng-include = "partials/header.html">
-      </div>
-    <div ng-controller = "logInController" class = "row row-centered">
+
+    <header ng-include = "'/views/partials/header.html'"></header>
+
+<h3>The Music Studio Tracker</h3>
+    <h4>All Your Dreams Have Come True</h4>
+    <p>
+      Welcome to The Music Studio Tracker! Would you like to
+      <ul>
+        <li>
+          Keep track of student information?  </li>
+          <li>Easily find account balances?</li>
+            <li>Add or DELETE students in a database?</li>
+          <li>Have a Master Schedule always at your fingertips?</li>
+
+      </ul>
+      Then, look no further! The Music Studio Tracker can do it all!
+    </p>
+
+    <h5>Already have an account? </h5>
+    <button ng-click="getLogInCreds" type="button" name="logInButton" value="logInButton">Log In! </button>
+    <h5>Ready to set up a free account? </h5>
+    <button ng-click="register" type="button" name="registerButton" value="registerButton">Register!</button>
 
 
-    <h3>The Music Studio Tracker</h3><br />
-    <p>for</p><br/>
-    <h3>Miss Ima Brecka-Euphingers</h3><br />
-    <h1>School of Musicianship and Beauty</h1><br />
-    <p>for</p><br />
-    <h2>Adults Seeking Purpose in Life</h2><br />
-    <p>and</p>
-    <h1>Talented Orphans</h1>
-
-    <input ng-model="userName" type="text" name="userName" value="userName" placeholder="User Name" /><br />
-    <input ng-model="password" type="text" name="password" value="password" placeholder="Password"/><br />
-    <button ng-click="getLogInCreds" type="button" name="logInButton" value="logInButton">Submit!</button>
+    <footer ng-include="'/views/partials/footer.html'"></footer>
 
 
-    </div>
 
 
 
