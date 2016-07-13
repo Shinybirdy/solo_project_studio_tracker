@@ -1,37 +1,37 @@
 console.log("Hi from client app!");
 
-var myApp = angular.module('myApp',[]);
+var myApp = angular.module('myApp',['ngRoute']);
 
 myApp.config(["$routeProvider", function($routeProvider){
   $routeProvider.
     when("/home", {
-      templateUrl:"/views/routes/home.html",
+      templateUrl:"/views/home.html",
       controller:"HomeController"
     }).
-    when("/master_schedule", {
-      templateUrl:"/views/routes/master_schedule.html"
+    when("/logIn", {
+      templateUrl:"/views/logIn.html",
+      controller:"LogInController"
     }).
-    when("/master_student_list", {
-      templateUrl:"/views/routes/master_student_list.html"
+    when("/masterSchedule", {
+      templateUrl:"/views/masterSchedule.html",
+      controller:"MasterScheduleController"
     }).
-    when("/add_student", {
-      templateUrl:"/views/routes/add_student.html"
+    when("/students", {
+      templateUrl:"/views/students.html",
+      controller:"StudentController"
     }).
+    when("/practiceWorksheet", {
+      templateUrl:"/views/practiceWorksheet.html",
+      controller:"WorksheetController"
+     }).
+     when("/studioPolicies", {
+       templateUrl:"/views/studioPolicies.html",
+       controller:"StudioPoliciesController"
+      }).
+
+
     otherwise({
       redirectTo:"home"
     });
-
-}]);
-
-
-myApp.controller("HomeController", ["$scope",function($scope){
-  console.log("Loaded Home");
-  $scope.counter =1;
-  $scope.iterate=function(){
-    $scope.counter++;
-  };
-}]);
-
-myApp.controller("logInController", ["$scope", "$http", function($scope, $http){
 
 }]);
