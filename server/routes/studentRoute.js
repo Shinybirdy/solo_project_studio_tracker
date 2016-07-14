@@ -49,7 +49,7 @@ router.get('/', function(req,res){
       //SQL Query > Select Data
       var studentQuery = client.query( 'SELECT * FROM students;');//students is a TABLE inside music_studio_trackerDB
 
-      console.log('query '+ studentQuery);
+      console.log('query ', studentQuery);
       //Stream results back one row at a time
 
       var rows = 0;
@@ -61,7 +61,7 @@ router.get('/', function(req,res){
 
     //After all data is returned, close connection and return results
     studentQuery.on ( 'end', function(){
-      console.log("all Students!" + allStudents);
+      console.log("all Students!", allStudents);
       return res.json( allStudents );
     });
     //Handle connection errors

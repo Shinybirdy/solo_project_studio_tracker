@@ -1,9 +1,9 @@
-<div>
+<div class="wrapper">
+    <form class="form-signin">
+<h3 class="form-signin-heading">The Music Studio Tracker</h3>
+    <input ng-model="userName" class="form-control" type="text" name="userName" value="userName" placeholder="User Name" required="" autofocus="" /><br />
+    <input ng-model="password" class="form-control" type="password" name="password" value="password" placeholder="Password"  required=""/><br />
 
-<h3>The Music Studio Tracker</h3>
-
-    <input ng-model="userName" type="text" name="userName" value="userName" placeholder="User Name" /><br />
-    <input ng-model="password" type="text" name="password" value="password" placeholder="Password"/><br />
-    <button ng-click="getLogInCreds" type="button" name="logInButton" value="logInButton">Submit!</button>
-
+    <button class="btn btn-lg btn-primary btn-block" ng-click="getLogInCreds" type="submit" name="logInButton" value="logInButton">Login</button>
+  </form>
 </div>

@@ -21,10 +21,16 @@
     </tr>
     </div>
 
+    <!--<tr ng-repeat="student in studentArray | orderBy:'lesson_time'">
+    DEMO CODE      <td>{{friend.name}}</td>
+                    <td>{{friend.phone}}</td>
+                    <td>{{friend.age}}</td> -->
+
+
     <div>
-    <tr>
-      <th>2:00 - 3:30</th>
-          <td></td>
+    <tr ng-repeat="student in studentArray  | orderBy:'lesson_day'" >
+      <th>2:00 - 3:30</th><!--Each time slot has 6 days in it - -->
+          <!-- <td>{{student.first_name}} {{student.last_name}}, {{lesson_day}}</td> -->
           <td></td>
           <td></td>
           <td></td>
