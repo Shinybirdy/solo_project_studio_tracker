@@ -10,49 +10,42 @@ console.log("student controller is running!!!");
       $scope.studentArray = response.data;
       console.log("get Students! GET");
     }); //end .then
-   };//end get Stude
+  };//end loadStudents
 
   $scope.addStudent = function () {
     console.log("CLICK!");
-
     event.preventDefault();
+      $scope.studentArray = [];
+      var addStudentObjectToSend = {
+        first: $scope.firstName,
+        last: $scope.lastName,
+        lessonDay: $scope.lessonDay,
+        lessonTime: $scope.lessonTime,
+        email: $scope.email,
+        phoneNumber: $scope.phoneNumber,
+        currentBalance: $scope.currentBalance,
+        makeupLessons: $scope.makeupLessons,
+        waitList: $scope.waitList,
+        lessonRate: $scope.lessonRate
+      };//end object
 
-    $scope.studentArray = [];
-
-    var addStudentObjectToSend = {
-      first: $scope.firstName,
-      last: $scope.lastName,
-      lessonDay: $scope.lessonDay,
-      lessonTime: $scope.lessonTime,
-      email: $scope.email,
-      phoneNumber: $scope.phoneNumber,
-      currentBalance: $scope.currentBalance,
-      makeupLessons: $scope.makeupLessons,
-      waitList: $scope.waitList,
-      lessonRate: $scope.lessonRate
-    };//end object
-
-     $http({
+      $http({
        method: 'POST',
        url: '/students',//studentRoute.js has the answer.....
        data: addStudentObjectToSend
-     }).then(function(response){
-       // .data is the data in the response; allStudents is the array of objects in students db
+      }).then(function(response){
+       console.log(response);
+       //if err, then blah --- do this - SQL mojo
        loadStudents();
-
      });
-      $scope.studentArray.push(addStudentObjectToSend);
-        console.log("studentArray =  ", $scope.studentArray);
-  }; // end addStudent function
+     $scope.studentArray.push(addStudentObjectToSend);
+     console.log("studentArray =  ", $scope.studentArray);
 
-
+    }; // end addStudent function
 
   $scope.getStudents = function(){
     loadStudents();
-
   };
 
-
-   $scope.getStudents();
-
- }]);
+  $scope.getStudents();
+}]);

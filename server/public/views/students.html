@@ -1,4 +1,4 @@
-<div class="container-fluid">">
+<div class="container-fluid">
 
 
   <h3>Add New Student</h3>
@@ -11,7 +11,7 @@
 
     <label for="last_name">Last Name:</label>
     <input type="text" ng-model = "lastName" /><br />
-<p><span>
+<h5><span>
   Lesson Day:
 
     <select name="lessonDay" id="lessonDay" ng-model = "lessonDay">
@@ -24,7 +24,7 @@
       <option value="6">Saturday</option>
     </select>
   </span>
-  </p>
+</h5>
 
 
 
@@ -33,18 +33,18 @@
 
     <select name="lessonTime" id="lessonTime" ng-model = "lessonTime" >Lesson Time:
       <option value="">Lesson Time</option> <!-- not selected / blank option -->
-      <option value="1">2:00</option>
-      <option value="2">2:30</option>
-      <option value="3">3:00</option>
-      <option value="4">3:30</option>
-      <option value="5">4:00</option>
-      <option value="6">4:30</option>
-      <option value="7">5:00</option>
-      <option value="8">5:30</option>
-      <option value="9">6:00</option>
-      <option value="10">6:30</option>
-      <option value="11">7:00</option>
-      <option value="12">7:30</option>
+      <option value="14:00:00">2:00</option>
+      <option value="14:30:00">2:30</option>
+      <option value="15:00:00">3:00</option>
+      <option value="15:30:00">3:30</option>
+      <option value="16:00:00">4:00</option>
+      <option value="16:30:00">4:30</option>
+      <option value="17:00:00">5:00</option>
+      <option value="17:30:00">5:30</option>
+      <option value="18:00:00">6:00</option>
+      <option value="18:30:00">6:30</option>
+      <option value="19:00:00">7:00</option>
+      <option value="19:30:00">7:30</option>
     </select>
 </span></p>
     <br />
@@ -90,6 +90,13 @@
         </select>
         </span></p>
         <br />
+    <!-- <div class="form-group">
+      <form ng-submit = "addNote()">
+      <label for="comment">Notes:</label>
+      <textarea class="form-control" rows="5" id="comment"></textarea>
+      <input class="btn btn-default" ng-click="addNote()" type="addNote" name = "addNote" value="addNote" />
+      </form>
+    </div> -->
 
     <input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" />
     </div>

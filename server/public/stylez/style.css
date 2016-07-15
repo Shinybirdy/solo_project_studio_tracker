@@ -6,60 +6,46 @@
 
 */
 
-
-
 .row-centered {
     text-align:center;
 }
+
 body{
-  font-family: 'IM Fell English', serif;
-  
+  font-family: 'Cabin', serif;
+  padding-top:80px;
+  margin:  0 0 100px; /* bottom = footer height */
+
 }
 
-th,td
-{
-    margin: 0;
-    text-align: center;
-    border-collapse: collapse;
-    outline: 1px solid #465C8B;
+.navbar{
+
+  background-color: #93C178
 }
 
-td
-{
-    padding: 5px 10px;
+html {
+    position: relative;
+    min-height: 100%;
 }
 
-th
-{
-    background: white;
-    color: #465C8B;
-    padding: 5px 10px;
-}
-
-td:hover
-{
-    cursor: pointer;
-    background: #666;
-    color: white;
-}
 footer {
-  color: #fff;
-   bottom: 0;
-   width: 100%;
-   position: absolute;
-   padding-top: 20px;
-   background-color: #465C8B;
-   margin: 20px 0;
-   }
-   input:{
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #465C8B;
+}
+input:{
      padding:10px;
-   }
+}
 
 login{
   padding: 20px;
 }
+
 body {
-	background: #CDCDCD;
+	background: #DFDCE3;
 }
 
 .wrapper {
@@ -68,6 +54,7 @@ body {
 }
 
 .form-signin {
+  text-align: center;
   max-width: 380px;
   padding: 15px 35px 45px;
   margin: 0 auto;

@@ -12,10 +12,10 @@ myApp.config(["$routeProvider", function($routeProvider){
       templateUrl:"/views/logIn.html",
       controller:"LogInController"
     }).
-    when("/masterSchedule", {
-      templateUrl:"/views/masterSchedule.html",
-      controller:"MasterScheduleController"
-    }).
+    // when("/masterSchedule", {
+    //   templateUrl:"/views/masterSchedule.html",
+    //   controller:"MasterScheduleController"
+    // }).
     when("/students", {
       templateUrl:"/views/students.html",
       controller:"StudentController"
@@ -28,6 +28,10 @@ myApp.config(["$routeProvider", function($routeProvider){
        templateUrl:"/views/studioPolicies.html",
        controller:"StudioPoliciesController"
       }).
+      when("/notes", {
+        templateUrl:"/views/students.html",
+        controller:"StudentNotesController"
+       }).
 
 
     otherwise({
