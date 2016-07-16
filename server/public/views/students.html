@@ -1,21 +1,21 @@
 <div class="container-fluid">
 
-
-  <h3>Add New Student</h3>
+<div class ="addStudentForm">
+<h3>Add New Student</h3>
 
   <form ng-submit = "addStudent()">
 
-  <div>
+
     <label for="first_name">First Name:</label>
     <input type="text" ng-model = "firstName" /><br />
 
     <label for="last_name">Last Name:</label>
     <input type="text" ng-model = "lastName" /><br />
 <h5><span>
-  Lesson Day:
+  <label>Lesson Day:</label>
 
     <select name="lessonDay" id="lessonDay" ng-model = "lessonDay">
-      <option value="">Lesson Day</option> <!-- not selected / blank option -->
+      <option value="">-------</option> <!-- not selected / blank option -->
       <option value="1">Monday</option>
       <option value="2">Tuesday</option>
       <option value="3">Wednesday</option>
@@ -29,10 +29,10 @@
 
 
 <p><span>
-  Lesson Time:
+  <label>Lesson Time:</label>
 
     <select name="lessonTime" id="lessonTime" ng-model = "lessonTime" >Lesson Time:
-      <option value="">Lesson Time</option> <!-- not selected / blank option -->
+      <option value="">-------</option> <!-- not selected / blank option -->
       <option value="14:00:00">2:00</option>
       <option value="14:30:00">2:30</option>
       <option value="15:00:00">3:00</option>
@@ -57,39 +57,25 @@
 
     <label for="current_balance">Current Balance:</label>
     <input type="text" ng-model = "currentBalance" /><br />
-<p><span>
-  Make Up Lessons:
-
-    <select name="makeupLessons" id="makeupLessons" ng-model = "makeupLessons" >
-      <option value="0">0</option> <!-- not selected / blank option -->
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-
-    </select>
-    </span></p>
-<p><span>
-  Wait List:
+<p><span><label>Wait List:</label>
 
     <select name="waitList" id= "waitList" ng-model = "waitList">Wait List:
-      <option value="1">False</option>
-      <option value="2">True</option>
+    <option value="1">False</option>
+    <option value="2">True</option>
         </select>
         </span></p>
-<p><span>
-   Lesson Rate:
 
-<select name="lessonRate" id= "lessonRate" ng-model = "lessonRate">Lesson Rate:
-          <option value="">--------</option> <!-- not selected / blank option -->
-          <option value="30.00">$30.00</option>
-          <option value="40.00">$40.00</option>
-          <option value="45.00">$45.00</option>
-          <option value="60.00">$60.00</option>
-          <option value="90.00">$90.00</option>
+    <p><span><label>Lesson Rate:</label>
+      <select name="lessonRate" id= "lessonRate" ng-model = "lessonRate">Lesson Rate:
+      <option value="">--------</option> <!-- not selected / blank option -->
+      <option value="30.00">$30.00</option>
+      <option value="40.00">$40.00</option>
+      <option value="45.00">$45.00</option>
+      <option value="60.00">$60.00</option>
+      <option value="90.00">$90.00</option>
 
-        </select>
-        </span></p>
-        <br />
+    </select></span><span><input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" />
+</span></p><br />
     <!-- <div class="form-group">
       <form ng-submit = "addNote()">
       <label for="comment">Notes:</label>
@@ -98,13 +84,15 @@
       </form>
     </div> -->
 
-    <input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" />
-    </div>
+    <!-- <input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" /> -->
+
     </form>
+    </div>
 </div>
 
-<h3>Student List</h3>
+
 <div class="container-fluid" ng-repeat = "student in studentArray">
+<h3>Student List</h3>
 <h4>
   {{student.last_name}}, {{student.first_name}}
   {{student.lesson_day}}<br />

@@ -14,11 +14,15 @@ body{
   font-family: 'Cabin', serif;
   padding-top:80px;
   margin:  0 0 100px; /* bottom = footer height */
-
+  color:#465C8B;
 }
 
-.navbar{
+.addStudentForm{
+background-color: #F7EF6A
 
+}
+.navbar{
+  color:#465C8B;
   background-color: #93C178
 }
 
@@ -86,3 +90,29 @@ body {
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
+  .addStudentForm
+ {
+     background-color: #f3f3f3;
+     border: solid 3px #F7EF6A;
+     padding: 10px;
+     width: 300px;
+ }
+
+ .addStudentForm label, .addStudentForm input
+ {
+     display: block;
+     width: 120px;
+     float: left;
+     margin-bottom: 10px;
+ }
+
+ .addStudentForm label
+ {
+     text-align: right;
+     padding-right: 20px;
+ }
+
+ br
+ {
+     clear: left;
+ }
