@@ -1,6 +1,7 @@
 myApp.controller('StudentController', ['$scope', '$http', function ($scope, $http) {
 console.log("student controller is running!!!");
-
+  var addStudentObjectToSend;
+  var studentArray =[];
   var loadStudents = function(){
 
      $http({
@@ -16,7 +17,7 @@ console.log("student controller is running!!!");
     console.log("CLICK!");
     event.preventDefault();
       $scope.studentArray = [];
-      var addStudentObjectToSend = {
+      addStudentObjectToSend = {
         first: $scope.firstName,
         last: $scope.lastName,
         lessonDay: $scope.lessonDay,
@@ -39,7 +40,7 @@ console.log("student controller is running!!!");
        loadStudents();
      });
      $scope.studentArray.push(addStudentObjectToSend);
-     console.log("studentArray =  ", $scope.studentArray);
+     console.log("studentArray =  ",studentArray(0,4));
 
     }; // end addStudent function
 

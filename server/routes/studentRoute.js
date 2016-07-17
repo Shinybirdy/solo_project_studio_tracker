@@ -45,18 +45,34 @@ router.post('/', function(req, res) {
 
 router.get('/', function(req,res){
   // req.body.day - from client, day
-  console.log("router.get from studentRoute.js! req.body.day:", req.body.lesson_day );
+  console.log("router.get from studentRoute.js! req.body.day:", req.body.lessonDay );
 
   var allStudents = [];
     pg.connect(connectionString, function(err, client, done){
       //SQL Query > Select Data
       var studentQuery = client.query( 'SELECT * FROM students ORDER BY lesson_day ASC,  lesson_time ASC;');//students is a TABLE inside music_studio_trackerDB
 
-      console.log('query ', studentQuery);
+      // console.log('query ', studentQuery);
       //Stream results back one row at a time
-
-      var rows = 0;
+      var row = 0;
       studentQuery.on('row', function (row) {
+        allStudents.forEach( function (lessonDay){
+           if( row.lessonDay == 1 ){
+            allStudents.push( row );
+          }else if( row.lessonDay == 2 ){
+           allStudents.push( row );
+         }else if( row.lessonDay == 3 ){
+          allStudents.push( row );
+        }else if( row.lessonDay == 4 ){
+         allStudents.push( row );
+       }else if( row.lessonDay == 5 ){
+        allStudents.push( row );
+      }else if( row.lessonDay == 6 ){
+       allStudents.push( row );
+     }
+            // var x = arrayItem.prop1 + 2;
+            // alert(x);
+        });
           // all students
           allStudents.push( row );
 
