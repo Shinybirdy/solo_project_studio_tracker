@@ -1,11 +1,83 @@
+  <!---STUDENT LIST / SCHEDULE........................................ -->
+<h1>Student List and Schedule</h1>
+
+<!-- Monday Students........................................................ -->
+    <table class = "container-fluid"><h2>Monday</h2>
+        <tr ng-repeat="student in studentArray | filter:{'lesson_day':'1'}| orderBy: 'lesson_time'">
+            <td class="time"><h2>{{student.lesson_time}}<br />
+            <h3>{{student.first_name}} {{student.last_name}}<br />
+            {{student.phone_number}}<br />
+            ${{student.current_balance}}</h3><br />
+          </h2></td>
+          </tr>
+        </table>
+
+
+<!-- Tuesday Students........................................................ -->
+
+    <table class="container-fluid"><h2>Tuesday</h2>
+        <tr ng-repeat="student in studentArray | filter:{'lesson_day':'2'}| orderBy: 'lesson_time'">
+            <td class = "time"><h2>{{student.lesson_time}} <br />
+            <h3>{{student.first_name}} {{student.last_name}}<br />
+            {{student.phone_number}}<br />
+            ${{student.current_balance}}</h3><br />
+            </h2></td>
+          </tr>
+        </table>
+<!-- Wednesday Students........................................................ -->
+      <table class="container-fluid"><h2>Wednesday</h2>
+          <tr ng-repeat="student in studentArray | filter:{'lesson_day':'3'}| orderBy: 'lesson_time'">
+            <td><h2>{{student.lesson_time}}<br />
+            <h3>{{student.first_name}} {{student.last_name}}<br />
+            {{student.phone_number}}<br />
+            {{student.current_balance}}</h3><br />
+            </h2></td>
+          </tr>
+        </table>
+<!-- Thursday Students........................................................ -->
+      <table class="container-fluid" name="thursday"><h2>Thursday</h2>
+          <tr ng-repeat="student in studentArray | filter:{'lesson_day':'4'}| orderBy: 'lesson_time'">
+            <td><h2>{{student.lesson_time}}<br />
+            <h3>{{student.first_name}} {{student.last_name}}<br />
+            {{student.phone_number}}<br />
+            {{student.current_balance}}</h3><br />
+            </h2></td>
+          </tr>
+        </table>
+
+<!-- Friday Students........................................................ -->
+      <table class="container-fluid" name="friday"><h2>Friday</h2>
+          <tr ng-repeat="student in studentArray | filter:{'lesson_day':'5'}| orderBy: 'lesson_time'">
+            <td><h2>{{student.lesson_time}}<br />
+            <h3>{{student.first_name}} {{student.last_name}}<br />
+            {{student.phone_number}}<br />
+            {{student.current_balance}}</h3><br />
+            </h2></td>
+          </tr>
+        </table>
+<!-- Saturday Students........................................................ -->
+        <table class="container-fluid" name="saturday"><h2>Saturday</h2>
+          <tr ng-repeat="student in studentArray | filter:{'lesson_day':'6'}| orderBy: 'lesson_time'">
+            <td><h2>{{student.lesson_time}}<br />
+            <h3>{{student.first_name}} {{student.last_name}}<br />
+            {{student.phone_number}}<br />
+            {{student.current_balance}}</h3><br />
+            </h2></td>
+          </tr>
+       </table>
+
+
+
+
+
+
 
 
 <div class ="addStudentForm">
-  <div class="container-fluid hidden">
-<h3>Add New Student</h3>
+  <div class="container-fluid">
+    <h3>Add New Student</h3>
 
   <form ng-submit = "addStudent()">
-
 
     <label for="first_name">First Name:</label>
     <input type="text" ng-model = "firstName" /><br />
@@ -26,8 +98,6 @@
     </select>
   </span>
 </h5>
-
-
 
 <p><span>
   <label>Lesson Time:</label>
@@ -68,165 +138,10 @@
       <option value="60.00">$60.00</option>
       <option value="90.00">$90.00</option>
 
-    </select></span><span><input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" />
-</span></p><br />
-    <!-- <div class="form-group">
-      <form ng-submit = "addNote()">
-      <label for="comment">Notes:</label>
-      <textarea class="form-control" rows="5" id="comment"></textarea>
-      <input class="btn btn-default" ng-click="addNote()" type="addNote" name = "addNote" value="addNote" />
-      </form>
-    </div> -->
-
-    <!-- <input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" /> -->
+    </select></span><br />
+    <input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" />
+</p><br />
 
     </form>
     </div>
-</div>
-
-<h3>Student List</h3>
-
-<!-- <div class="student" ng-repeat = "student.lesson_day = 1 in studentArray"> -->
-  <div class="row">
-
-    <table class="students">
-<!-- Monday Students........................................................ -->
-      <th>Monday</th>
-        <div class="col-md-2" name="Monday" id="Monday" >
-          <tr ng-repeat="student in studentArray | filter:{lesson_day:'1'}| orderBy: 'lesson_time'">
-            <td>
-            {{student.lesson_time}}
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br />
-            </td>
-          </tr>
-        </div>
-
-<!-- Tuesday Students........................................................ -->
-      <th>Tuesday</th>
-        <div class="col-md-2" name="Tuesday" id="Tuesday" >
-          <tr ng-repeat="student in studentArray | filter:{lesson_day:'2'}| orderBy: 'lesson_time'">
-            <td>
-            {{student.lesson_time}}
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br />
-            </td>
-          </tr>
-        </div>
-<!-- Wednesday Students........................................................ -->
-      <th>Wednesday</th>
-        <div class="col-md-2" name="Wednesday" id="Wednesday" >
-          <tr ng-repeat="student in studentArray | filter:{lesson_day:'3'}| orderBy: 'lesson_time'">
-            <td>
-            {{student.lesson_time}}
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br />
-            </td>
-          </tr>
-        </div>
-<!-- Thursday Students........................................................ -->
-      <th>Thursday</th>
-        <div class="col-md-2" name="Thursday" id="Thursday" >
-          <tr ng-repeat="student in studentArray | filter:{lesson_day:'4'}| orderBy: 'lesson_time'">
-            <td>
-            {{student.lesson_time}}
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br />
-            </td>
-          </tr>
-        </div>
-
-<!-- Friday Students........................................................ -->
-      <th>Friday</th>
-        <div class="col-md-2" name="Friday" id="Friday" >
-          <tr ng-repeat="student in studentArray | filter:{lesson_day:'5'}| orderBy: 'lesson_time'">
-            <td>
-            {{student.lesson_time}}
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br />
-            </td>
-          </tr>
-        </div>
-<!-- Saturday Students........................................................ -->
-      <th>Saturday</th>
-        <div class="col-md-2" name="Saturday" id="Saturday" >
-          <tr ng-repeat="student in studentArray | filter:{lesson_day:'6'}| orderBy: 'lesson_time'">
-            <td>
-            {{student.lesson_time}}
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br />
-            </td>
-          </tr>
-        </div>
-
-
-      
-          <!-- <tr ng-repeat="student in studentArray | filter:{lesson_day:'1'}| orderBy: 'lessonTime'">
-            <td>{{student.lesson_day}}<br />
-            {{student.lesson_time}}<br />
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br /></td>
-            <tr ng-repeat="student in studentArray | filter:{lesson_day:'2'}| orderBy: 'lessonTime'">
-
-            <td>{{student.lesson_day}}<br />
-            {{student.lesson_time}}<br />
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br /></td>
-            <tr ng-repeat="student in studentArray | filter:{lesson_day:'3'}| orderBy: 'lesson_time'">
-
-            <td>{{student.lesson_day}}<br />
-            {{student.lesson_time}}<br />
-            {{student.first_name}} {{student.last_name}}<br />
-            {{student.phone_number}}<br />
-            {{student.current_balance}}<br /></td>
-          </tr> -->
-
-
-
-      <!-- <div class="col-md-2" name="Monday" id="Monday" > -->
-      <!-- <tr ng-repeat="student in studentArray | filter:{lesson_day:'1'}| orderBy: 'lesson_time'">
-
-
-        <td>
-        {{student.lesson_time}}
-        {{student.first_name}} {{student.last_name}}<br />
-        {{student.phone_number}}<br />
-        {{student.current_balance}}<br />
-      </td>{{student.lesson_time}}<br />
-
-      </tr>
-      </div> -->
-      <!-- <div class="col-md-2" name="Tuesday" id="Tuesday" >
-
-      <tr ng-repeat="student in studentArray | filter:{lesson_day:'2'}| orderBy: 'lesson_time'">
-        <td>
-        {{student.lesson_time}}
-        {{student.first_name}} {{student.last_name}}<br />
-        {{student.phone_number}}<br />
-        {{student.current_balance}}<br />
-      </td>{{student.lesson_time}}<br />
-
-      </tr>
-      </div> -->
-    <!-- <div class="col-md-2">.col-md-</div>
-    <div class="col-md-2">.col-md-1</div>
-    <div class="col-md-2">.col-md-1</div>
-    <div class="col-md-2">.col-md-1</div> -->
-
-<!-- <h4>
-  {{student.lesson_time}}<br />
-  {{student.first_name}} {{student.last_name}}<br />< {{student.lesson_day}}<br /> -->
-  <!-- {{student.phone_number}}<br />
-  {{student.current_balance}}<br />
-
-</h4> -->
-</table>
 </div>

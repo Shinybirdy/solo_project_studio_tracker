@@ -7,16 +7,13 @@ var connectionString = 'postgres://localhost:5432/music_studio_tracker';
 
 console.log('this ran from studentRoute.js');
 
-// Handles POST request with new user data
+// Here is the POST request with new user data----------------------------------
 router.post('/', function(req, res) {
   var results = [];//mherman
   var data = {text:req.body.text, complete: false};//mherman
-    console.log( req.body );
-
   pg.connect(connectionString, function(err, client, done) {
       //handle connection errors
     if(err){
-
       done();
       console.log(err);
       res.sendStatus(500).json({success: false, data:err});
@@ -43,47 +40,41 @@ router.post('/', function(req, res) {
   });//end pg connect
 });//end post
 
+
+// Here is the GET all the Students --------------------------------------------
 router.get('/', function(req,res){
   // req.body.day - from client, day
-  console.log("router.get from studentRoute.js! req.body.day:", req.body.lessonDay );
+  console.log("router.get from studentRoute.js!");
 
   var allStudents = [];
+
     pg.connect(connectionString, function(err, client, done){
       //SQL Query > Select Data
       var studentQuery = client.query( 'SELECT * FROM students ORDER BY lesson_day ASC,  lesson_time ASC;');//students is a TABLE inside music_studio_trackerDB
 
-      // console.log('query ', studentQuery);
       //Stream results back one row at a time
       var row = 0;
       studentQuery.on('row', function (row) {
         allStudents.forEach( function (lessonDay){
            if( row.lessonDay == 1 ){
             allStudents.push( row );
-          }else if( row.lessonDay == 2 ){
-           allStudents.push( row );
-         }else if( row.lessonDay == 3 ){
-          allStudents.push( row );
-        }else if( row.lessonDay == 4 ){
-         allStudents.push( row );
-       }else if( row.lessonDay == 5 ){
-        allStudents.push( row );
-      }else if( row.lessonDay == 6 ){
-       allStudents.push( row );
-     }
-            // var x = arrayItem.prop1 + 2;
-            // alert(x);
-        });
-          // all students
+            }else if( row.lessonDay == 2 ){
+              allStudents.push( row );
+            }else if( row.lessonDay == 3 ){
+              allStudents.push( row );
+            }else if( row.lessonDay == 4 ){
+              allStudents.push( row );
+            }else if( row.lessonDay == 5 ){
+              allStudents.push( row );
+            }else if( row.lessonDay == 6 ){
+              allStudents.push( row );
+            }//end day6
+      });//end studentQuery
+
           allStudents.push( row );
 
       });//end query push
-
-      // check for day
-      // if( row.lesson_day == 1 ){
-      //   allStudents.push( row );
-      // }
-
-    //After all data is returned, close connection and return results
+//After all data is returned, close connection and return results
     studentQuery.on ( 'end', function(){
       console.log("all Students!", allStudents);
       return res.json( allStudents );
@@ -94,5 +85,4 @@ router.get('/', function(req,res){
     }
   });
 });
-
 module.exports = router;
