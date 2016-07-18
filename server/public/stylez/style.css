@@ -1,38 +1,39 @@
 /*Primary Color - Cool Grey - #CDCDCD
-○ Light - Clean (Light Blue) -  #DFDCE3
+○ Light - Clean (CambridgeBlue) -  #9BC1BC
 ○ Dark - Sunshine (Deep Blue) - #465C8B
 ○ Mid-tone - Vermillion -  #93C178
-○ Accent - Fresh (Yellow) #F7EF6A
+○ Accent - Blond  #F4F1BB
+TerraCotta #ED6A5A
+Platinum #E6EBEO
+CAdet Blue - #5CA4A9
 
 */
 body{
-  font-family: 'Cabin', serif;
+  font-family: 'Helvetica Neue', sans-serif;
   padding-top:80px;
   margin:  0 50px 100px; /* bottom = footer height */
   color:#465C8B;
-  background: #DFDCE3;
+
+
 }
-
-
-.row {
-    text-align:left;
-}
-
-.addStudentForm{
-
-  background-color: #F7EF6A;
-
+h1{
+  text-align: center;
 }
 .navbar{
-
-  color:#465C8B;
+  color:#E6EBEO;
   background-color: #93C178;
+
+}
+.wrapper{
+  margin-left: 220px;
+  margin-right: 220px;
+  padding:20px;
 
 }
 
 html {
     position: relative;
-    min-height: 100%;
+    /*min-height: 100%;*/
 
 }/*keeps the footer low*/
 
@@ -48,20 +49,41 @@ footer {
 
 }
 input:{
-
-     padding:10px;
+ padding:10px;
 }
 
 login{
-
   padding: 20px;
+}
+
+.day{
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+  background-color:#5CA4A9 ;
+  color:#F4F1BB;
+}
+
+.IrmaHeader{
+  text-align: center;
+  background-color: #F4F1BB;
+  font-family:cursive;
+  line-height: 2;
+
 
 }
+
+
+/*SIGN IN FORM ****************************************************************/
 
 .wrapper {
 	margin-top: 80px;
   margin-bottom: 100px;
 }
+
 
 .form-signin {
 
@@ -70,7 +92,7 @@ login{
   padding: 15px 35px 45px;
   margin: 0 auto;
   background-color: #fff;
-  border: 2px solid #93C178;
+  border: 2px solid #ED6A5A;
 
 }
 
@@ -106,32 +128,52 @@ input[type="password"] {
   border-top-right-radius: 0;
 
 }
+update{
+  color:#DFDCE3;
 
+}
+/*Add Student Form styles******************************************************/
 .addStudentForm{
+  text-align: center;
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
 
-   background-color: #f3f3f3;
-   border: solid 3px #F7EF6A;
-   padding: 10px;
+  border: 2px solid #ED6A5A;
+
+  margin-top: 20px;
+  background-color: #F4F1BB;
+
+
    /*width: 300px;*/
 
 }
+.agreement,h2{
+  text-align: center;
 
+}
+.agreement,h4{
+  text-align: left;
+}
  .addStudentForm label, .addStudentForm input
  {
      display: block;
-     width: 120px;
-     float: left;
+     width: 280px;
+     text-align: center;
      margin-bottom: 10px;
 
  }
-
- .addStudentForm label
- {
-     text-align: right;
-     padding-right: 20px;
- }
-
  br
  {
      clear: left;
+ }
+ td{
+   font-family: 'Helvetica Neue', sans-serif;
+   font-size: 12px;
+   font-weight:lighter;
+   letter-spacing: 2px;
+   line-height: 1;
+   text-align: center;
+
+
  }

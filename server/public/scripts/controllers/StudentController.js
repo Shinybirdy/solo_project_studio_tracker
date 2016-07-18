@@ -37,9 +37,11 @@ console.log("student controller is running!!!");
        url: '/students',//studentRoute.js has the answer.....
        data: addStudentObjectToSend
       }).then(function(response){
+
        console.log(response);
        //if err, then blah --- do this - SQL mojo
        loadStudents();
+
      });
      $scope.studentArray.push(addStudentObjectToSend);
 
@@ -51,5 +53,43 @@ console.log("student controller is running!!!");
     };
 
   $scope.getStudents();
+
+  var studentToDelete;
+
+  // DELETE Student!!!
+  // $scope.deleteStudent = function(){
+  //   console.log('clicked Delete!');
+  //
+  //   var studentToDelete = {
+  //       id:$scope.id,
+  //       first: $scope.firstName,
+  //       last: $scope.lastName,
+  //       lessonDay: $scope.lessonDay,
+  //       lessonTime: $scope.lessonTime,
+  //       email: $scope.email,
+  //       phoneNumber: $scope.phoneNumber,
+  //       currentBalance: $scope.currentBalance,
+  //       makeupLessons: $scope.makeupLessons,
+  //       waitList: $scope.waitList,
+  //       lessonRate: $scope.lessonRate
+  //     };
+  //
+  //   console.log("studentToDelete  ", studentToDelete);
+  // }; //end deleteStudent function
+  //
+  // $http({
+  //
+  //   method: 'delete',
+  //   url:'/students',
+  //   data: studentToDelete
+  //
+  // }).then( function (response){
+  //
+  //   console.log(response);
+  //    //if err, then blah --- do this - SQL mojo
+  //    loadStudents();
+  //  });//end .then function
+
+
 
 }]);

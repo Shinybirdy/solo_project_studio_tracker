@@ -46,7 +46,7 @@ router.get('/', function(req,res){
   // req.body.day - from client, day
   console.log("router.get from studentRoute.js!");
 
-  var allStudents = [];
+    var allStudents = [];
 
     pg.connect(connectionString, function(err, client, done){
       //SQL Query > Select Data
@@ -74,6 +74,7 @@ router.get('/', function(req,res){
           allStudents.push( row );
 
       });//end query push
+
 //After all data is returned, close connection and return results
     studentQuery.on ( 'end', function(){
       console.log("all Students!", allStudents);
@@ -84,5 +85,20 @@ router.get('/', function(req,res){
       console.log(err);
     }
   });
-});
+});//end of the GET_
+
+// router.delete ('/', function( req, res ){
+//   console.log('going to delete!');
+//   pg.connect( connectionString, function( err, client, done){
+//     console.log("req.body.id  ", req.body);
+//   });
+//   var deleteQuery = client.query ('DELETE from students WHERE id=' + req.body.id+ ';');
+//   if(err){
+//     res.sendStatus(500);
+//   }else{
+//     res.sendStatus(200);
+//   }
+//   done();
+//   res.end();
+// });//end DELETE
 module.exports = router;

@@ -2,75 +2,113 @@
 <h1>Student List and Schedule</h1>
 
 <!-- Monday Students........................................................ -->
-    <table class = "container-fluid"><h2>Monday</h2>
+  <table class = "container-fluid">
+    <div class="day"><h2>Monday</h2>
         <tr ng-repeat="student in studentArray | filter:{'lesson_day':'1'}| orderBy: 'lesson_time'">
-            <td class="time"><h2>{{student.lesson_time}}<br />
+            <td><h2>{{student.lesson_time}}<br />
             <h3>{{student.first_name}} {{student.last_name}}<br />
+            {{student.email}}<br />
             {{student.phone_number}}<br />
             ${{student.current_balance}}</h3><br />
+
+          <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
+          <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
+
           </h2></td>
           </tr>
+        </div>
         </table>
 
 
 <!-- Tuesday Students........................................................ -->
 
-    <table class="container-fluid"><h2>Tuesday</h2>
+      <table class="container-fluid">
+      <div class="day">
+
+    <h2>Tuesday</h2>
         <tr ng-repeat="student in studentArray | filter:{'lesson_day':'2'}| orderBy: 'lesson_time'">
-            <td class = "time"><h2>{{student.lesson_time}} <br />
+            <td><h2>{{student.lesson_time}} <br />
             <h3>{{student.first_name}} {{student.last_name}}<br />
             {{student.phone_number}}<br />
+            {{student.email}}<br />
             ${{student.current_balance}}</h3><br />
+            <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
+
+            <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
+
             </h2></td>
           </tr>
+        </div>
         </table>
 <!-- Wednesday Students........................................................ -->
-      <table class="container-fluid"><h2>Wednesday</h2>
+      <table class="container-fluid">
+        <div class="day"><h2>Wednesday</h2>
           <tr ng-repeat="student in studentArray | filter:{'lesson_day':'3'}| orderBy: 'lesson_time'">
             <td><h2>{{student.lesson_time}}<br />
             <h3>{{student.first_name}} {{student.last_name}}<br />
             {{student.phone_number}}<br />
-            {{student.current_balance}}</h3><br />
+            {{student.email}}<br />
+            ${{student.current_balance}}</h3><br />
+            <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
+
+            <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
+
             </h2></td>
           </tr>
+          </div>
         </table>
 <!-- Thursday Students........................................................ -->
-      <table class="container-fluid" name="thursday"><h2>Thursday</h2>
+      <table class="container-fluid" >
+        <div class="day"><h2>Thursday</h2>
           <tr ng-repeat="student in studentArray | filter:{'lesson_day':'4'}| orderBy: 'lesson_time'">
             <td><h2>{{student.lesson_time}}<br />
             <h3>{{student.first_name}} {{student.last_name}}<br />
             {{student.phone_number}}<br />
-            {{student.current_balance}}</h3><br />
+            {{student.email}}<br />
+            ${{student.current_balance}}</h3><br />
+            <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
+
+            <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
+
             </h2></td>
           </tr>
+        </div>
         </table>
 
 <!-- Friday Students........................................................ -->
-      <table class="container-fluid" name="friday"><h2>Friday</h2>
+      <table class="container-fluid">
+        <div class="day"><h2>Friday</h2>
           <tr ng-repeat="student in studentArray | filter:{'lesson_day':'5'}| orderBy: 'lesson_time'">
             <td><h2>{{student.lesson_time}}<br />
             <h3>{{student.first_name}} {{student.last_name}}<br />
             {{student.phone_number}}<br />
-            {{student.current_balance}}</h3><br />
+            {{student.email}}<br />
+            ${{student.current_balance}}</h3><br />
+            <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
+
+            <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
+
             </h2></td>
           </tr>
+        </div>
         </table>
 <!-- Saturday Students........................................................ -->
-        <table class="container-fluid" name="saturday"><h2>Saturday</h2>
-          <tr ng-repeat="student in studentArray | filter:{'lesson_day':'6'}| orderBy: 'lesson_time'">
+        <table class="container-fluid">
+            <div class="day"><h2>Saturday</h2>
+              <tr ng-repeat="student in studentArray | filter:{'lesson_day':'6'}| orderBy: 'lesson_time'">
             <td><h2>{{student.lesson_time}}<br />
             <h3>{{student.first_name}} {{student.last_name}}<br />
             {{student.phone_number}}<br />
-            {{student.current_balance}}</h3><br />
+            {{student.email}}<br />
+            ${{student.current_balance}}</h3><br />
+            <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" id = "Update" value="Update" />
+
+            <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" id = "Delete" value="Delete" />
+
             </h2></td>
           </tr>
+        </div>
        </table>
-
-
-
-
-
-
 
 
 <div class ="addStudentForm">
@@ -99,8 +137,7 @@
   </span>
 </h5>
 
-<p><span>
-  <label>Lesson Time:</label>
+<p><span><label>Lesson Time:</label>
 
     <select name="lessonTime" id="lessonTime" ng-model = "lessonTime" >Lesson Time:
       <option value="">-------</option> <!-- not selected / blank option -->
@@ -117,8 +154,8 @@
       <option value="7:00">7:00</option>
       <option value="7:30">7:30</option>
     </select>
-</span></p>
-    <br />
+      </span></p>
+      <br />
 
     <label for="email">Email:</label>
     <input type="text" ng-model = "email" /><br />
@@ -131,17 +168,17 @@
 
     <p><span><label>Lesson Rate:</label>
       <select name="lessonRate" id= "lessonRate" ng-model = "lessonRate">Lesson Rate:
-      <option value="">--------</option> <!-- not selected / blank option -->
-      <option value="30.00">$30.00</option>
-      <option value="40.00">$40.00</option>
-      <option value="45.00">$45.00</option>
-      <option value="60.00">$60.00</option>
-      <option value="90.00">$90.00</option>
+        <option value="">--------</option><!-- not selected / blank option -->
+        <option value="30.00">$30.00</option>
+        <option value="40.00">$40.00</option>
+        <option value="45.00">$45.00</option>
+        <option value="60.00">$60.00</option>
+        <option value="90.00">$90.00</option>
+      </select>
+        </span><br />
 
-    </select></span><br />
-    <input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" />
-</p><br />
+<input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" /></p><br />
 
     </form>
-    </div>
+  </div>
 </div>
