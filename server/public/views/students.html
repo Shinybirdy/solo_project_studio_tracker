@@ -23,9 +23,9 @@
 <!-- Tuesday Students........................................................ -->
 
       <table class="container-fluid">
-      <div class="day">
+      <div class="day"><h2>Tuesday</h2>
 
-    <h2>Tuesday</h2>
+
         <tr ng-repeat="student in studentArray | filter:{'lesson_day':'2'}| orderBy: 'lesson_time'">
             <td><h2>{{student.lesson_time}} <br />
             <h3>{{student.first_name}} {{student.last_name}}<br />

@@ -13,11 +13,16 @@ body{
   padding-top:80px;
   margin:  0 50px 100px; /* bottom = footer height */
   color:#465C8B;
-
-
+  background-color: #F4F1BB;
+}
+.dumb{
+  color:#fff;
 }
 h1{
   text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color:#ED6A5A;
 }
 .navbar{
   color:#E6EBEO;
@@ -30,7 +35,15 @@ h1{
   padding:20px;
 
 }
+.more{
+  text-transform: lowercase;
+  font-style: italic;
 
+}
+img {
+    width: 100%;
+    height: auto;
+}
 html {
     position: relative;
     /*min-height: 100%;*/
@@ -56,7 +69,16 @@ login{
   padding: 20px;
 }
 
+
+/*.day {
+    width:70%;
+    height:40px;
+    background:#FFF;
+    margin:40px auto;
+}*/
+
 .day{
+  /*position:realtive;*/
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 36px;
   font-weight: bold;
@@ -64,7 +86,11 @@ login{
   line-height: 1;
   text-align: center;
   background-color:#5CA4A9 ;
-  color:#F4F1BB;
+  color:#fff;
+}
+.loginpage{
+  background-image: url("hirespiano.jpeg");
+
 }
 
 .IrmaHeader{
@@ -75,7 +101,11 @@ login{
 
 
 }
+.signIn{
+  color:#fff;
+  background-color: #ED6A5A;
 
+}
 
 /*SIGN IN FORM ****************************************************************/
 
@@ -139,7 +169,7 @@ update{
   padding: 15px 35px 45px;
   margin: 0 auto;
 
-  border: 2px solid #ED6A5A;
+  border: 5px solid #ED6A5A;
 
   margin-top: 20px;
   background-color: #F4F1BB;
