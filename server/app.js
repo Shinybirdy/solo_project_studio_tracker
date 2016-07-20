@@ -1,5 +1,6 @@
 console.log("Hey - from app.js");
 //server side
+var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -42,6 +43,10 @@ app.get('/*',function(req,res){
   res.sendFile(path.join(__dirname,"/public", file));
   //res.sendFile(path.resolve("views/index.html"));
 });
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
+
 
 app.listen( app.get("port"), function(){
   console.log("Server is listening on port 8080, darling...");
