@@ -2,22 +2,30 @@
 <h1>Student List and Schedule</h1>
 
 <!-- Monday Students........................................................ -->
-  <table class = "container-fluid">
-    <div class="day"><h2>Monday</h2>
-        <tr ng-repeat="student in studentArray | filter:{'lesson_day':'1'}| orderBy: 'lesson_time'">
-            <td><h2>{{student.lesson_time}}<br />
-            <h3>{{student.first_name}} {{student.last_name}}<br />
-            {{student.email}}<br />
-            {{student.phone_number}}<br />
-            ${{student.current_balance}}</h3><br />
+<div class="day">
+  <md-card layout-align="center" class="md-whiteframe-1dp">
+    <md-card-header>Monday</md-card-header>
+       <md-card-content>
+         <md-card ng-repeat="student in studentArray | filter:{'lesson_day':'1'}| orderBy: 'lesson_time'" class = "student">
+           <h2 class="lesson_time">{{student.lesson_time}}</h2><br />
+           <h3 class="student_name">{{student.first_name}} {{student.last_name}}</h3><br />
+           <md-divider></md-divider>
+            <p class = "email">{{student.email}}</p><br />
+            <p class="phone">{{student.phone_number}}</p><br />
+            <p class="balance">${{student.current_balance}}</p><br />
+            <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
+            <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
 
-          <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
-          <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
+          </md-card>
+      </md-card-content>
+  </md-card>
+</div>
 
-          </h2></td>
-          </tr>
-        </div>
-        </table>
+
+
+
+
+
 
 
 <!-- Tuesday Students........................................................ -->
