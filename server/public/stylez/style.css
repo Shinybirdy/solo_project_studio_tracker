@@ -8,6 +8,8 @@ Platinum #E6EBEO
 CAdet Blue - #5CA4A9
 
 */
+
+/*Overall styles*/
 body{
   font-family: 'Helvetica Neue', sans-serif;
   padding-top:80px;
@@ -27,6 +29,18 @@ h1{
 .navbar{
   color:#E6EBEO;
   background-color: #93C178;
+
+}
+
+footer {
+
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #465C8B;
 
 }
 .wrapper{
@@ -50,17 +64,6 @@ html {
 
 }/*keeps the footer low*/
 
-footer {
-
-    color: #fff;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    background-color: #465C8B;
-
-}
 input:{
  padding:10px;
 }
@@ -68,7 +71,37 @@ input:{
 login{
   padding: 20px;
 }
-
+.day md-whiteframe {
+    background: #fff;
+    margin: 30px;
+    height: 100px; }
+  @media (max-width: 599px) {
+    .day md-whiteframe {
+      margin: 7px;
+      height: 50px;
+      background-color: #c8e4fa; }
+    .day md-whiteframe > span {
+      font-size: 0.4em; } }
+  @media (min-width: 600px) and (max-width: 959px) {
+    .day md-whiteframe {
+      margin: 20px;
+      height: 75px; }
+    .day md-whiteframe > span {
+      font-size: 0.6em; } }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    .day md-whiteframe {
+      margin: 20px;
+      height: 90px;
+      background-color: #fcddde; }
+    .day md-whiteframe > span {
+      font-size: 0.9em; } }
+  @media (min-width: 1280px) {
+    .day md-whiteframe {
+      margin: 25px;
+      height: 100px;
+      background-color: #F2FCE2; }
+    .day md-whiteframe > span {
+      font-size: 1.0em; } }
 
 /*.day {
     width:70%;
@@ -77,17 +110,17 @@ login{
     margin:40px auto;
 }*/
 
-.day{
+/*.day{
   /*position:realtive;*/
-  font-family: 'Helvetica Neue', sans-serif;
+  /*font-family: 'Helvetica Neue', sans-serif;
   font-size: 36px;
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 1;
   text-align: center;
   background-color:#5CA4A9 ;
-  color:#fff;
-}
+  /*color:#fff;*/
+/*}*/
 .loginpage{
   background-image: url("hirespiano.jpeg");
 

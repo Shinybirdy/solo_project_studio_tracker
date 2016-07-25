@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 //server
 app.set("port",(process.env.PORT||5000));
 
-
 //set static page
 app.use(express.static('public'));
 
@@ -40,32 +39,29 @@ app.use('/master_schedule', masterSchedule);
 
 
 //code from Heroku node.js set up////
-// pg.defaults.ssl = true;
-// pg.connect(process.env.DATABASE_URL, function(err, client) {
-//   if (err) throw err;
-//   console.log('Connected to postgres! Getting schemas...');
-//
-//   client
-//     .query('SELECT * FROM students;')
-//     .on('row', function(row) {
-//       console.log(JSON.stringify(row));
-//     });
-// });
-//
+//pg.defaults.ssl = true;
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
 
-
+  // client
+  //   .query('SELECT * FROM public.students;')
+  //   .on('row', function(row) {
+  //     console.log(JSON.stringify(row));
+  //   });
 
 
 //base url & index file
 app.get('/*',function(req,res){
   console.log("at base url, so that's something...");
 
-  app.get('/db', function (request, response) {
-    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-      if(process.env.DATABASE_URL !== undefined) {
-          connectionString = process.env.DATABASE_URL + 'ssl';
-      } else {
-          connectionString = 'postgres://localhost:5432/passport-users';
+  app.get('/:db', function (req, res) {
+    var db = req.params.db;
+
+    pg.connect(process.env.DATABASE_URL || connectionString, function(err, client, done) {
+
+      if (err){
+        res.sendStatus(500);
       }
 
       client.query('SELECT * FROM students', function(err, result) {
@@ -78,21 +74,19 @@ app.get('/*',function(req,res){
     });
   });
 
-
-
   var file= req.params[0]||"/views/index.html";
   res.sendFile(path.join(__dirname,"/public", file));
   //res.sendFile(path.resolve("views/index.html"));
 });
 
-app.get('/cool', function(request, response) {
+
+app.get('/cool', function(re, res) {
   response.send(cool());
 });
-
 
 app.listen( app.get("port"), function(){
   console.log("Server is listening on port 5000, darling...");
 });
-
+});
 // app.use('/', router);
 module.exports=app;

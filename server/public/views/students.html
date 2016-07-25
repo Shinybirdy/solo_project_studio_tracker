@@ -3,8 +3,9 @@
 
 <!-- Monday Students........................................................ -->
 <div class="day">
-  <md-card layout-align="center" class="md-whiteframe-1dp">
-    <md-card-header>Monday</md-card-header>
+  <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+    <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+      <md-card-header>Monday</md-card-header>
        <md-card-content>
          <md-card ng-repeat="student in studentArray | filter:{'lesson_day':'1'}| orderBy: 'lesson_time'" class = "student">
            <h2 class="lesson_time">{{student.lesson_time}}</h2><br />
@@ -18,7 +19,8 @@
 
           </md-card>
       </md-card-content>
-  </md-card>
+    </md-whiteframe>
+  </div>
 </div>
 
 
