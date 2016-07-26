@@ -8,11 +8,9 @@ var path = require('path');
 
 //postgres server connection
 var pg = require('pg');
-
 var connectionString = "postgres://localhost:5432/music_studio_tracker";
 //body-parser middleware
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({extended:false}));
 
 //server
 app.set("port",(process.env.PORT||5000));
@@ -52,8 +50,8 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
 
 //base url & index file
-app.get('/*',function(req,res){
-  console.log("at base url, so that's something...");
+// app.get('/*',function(req,res){
+//   console.log("at base url, so that's something...");
 
   app.get('/:db', function (req, res) {
     var db = req.params.db;
@@ -79,14 +77,13 @@ app.get('/*',function(req,res){
   //res.sendFile(path.resolve("views/index.html"));
 });
 
-
-app.get('/cool', function(re, res) {
+app.get('/cool', function(req, res) {
   response.send(cool());
 });
 
 app.listen( app.get("port"), function(){
   console.log("Server is listening on port 5000, darling...");
 });
-});
+
 // app.use('/', router);
 module.exports=app;
