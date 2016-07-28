@@ -3,8 +3,7 @@ var express = require('express');
 var router = express.Router();//var passport = require('passport');
 var path = require('path');
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/music_studio_tracker';
-
+var connectionString = require("../modules/connection");
 console.log('this ran from studentRoute.js');
 
 // Here is the POST request with new user data----------------------------------

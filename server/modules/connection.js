@@ -11,4 +11,5 @@ if(process.env.DATABASE_URL !== undefined) {
  connectionString = 'postgres://localhost:5432/music_studio_tracker';
 }
 console.log("connectionString set to: ", connectionString);
+
 module.exports = connectionString;

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();//var passport = require('passport');
 var path = require('path');
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/music_studio_tracker';
+var connectionString = require("../modules/connection");
 
 console.log('this ran from studentNotesRoute.js');
 // Handles request for HTML file

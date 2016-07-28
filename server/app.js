@@ -1,6 +1,6 @@
 console.log("Hey - from app.js");
 //server side
-var cool = require('cool-ascii-faces');
+//var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -8,12 +8,17 @@ var path = require('path');
 
 //postgres server connection
 var pg = require('pg');
-var connectionString = "postgres://localhost:5432/music_studio_tracker";
+var connectionString = require("./modules/connection");
+
 //body-parser middleware
 app.use(bodyParser.json());
 
 //server
 app.set("port",(process.env.PORT||5000));
+
+app.listen( app.get("port"), function(){
+  console.log("Server is listening on port 5000, darling...");
+});
 
 //set static page
 app.use(express.static('public'));
@@ -38,16 +43,6 @@ app.use('/master_schedule', masterSchedule);
 
 //code from Heroku node.js set up////
 //pg.defaults.ssl = true;
-pg.connect(process.env.DATABASE_URL, function(err, client) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-
-  // client
-  //   .query('SELECT * FROM public.students;')
-  //   .on('row', function(row) {
-  //     console.log(JSON.stringify(row));
-  //   });
-
 
 //base url & index file
 app.get('/*',function(req,res){
@@ -56,7 +51,7 @@ app.get('/*',function(req,res){
   app.get('/:db', function (req, res) {
     var db = req.params.db;
 
-    pg.connect(process.env.DATABASE_URL || connectionString, function(err, client, done) {
+    pg.connect(connectionString, function(err, client, done) {
 
       if (err){
         res.sendStatus(500);
@@ -77,13 +72,7 @@ app.get('/*',function(req,res){
   //res.sendFile(path.resolve("views/index.html"));
 });
 
-app.get('/cool', function(req, res) {
-  response.send(cool());
-});
 
-app.listen( app.get("port"), function(){
-  console.log("Server is listening on port 5000, darling...");
-});
 
 // app.use('/', router);
 module.exports=app;
