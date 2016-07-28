@@ -50,8 +50,8 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
 
 //base url & index file
-// app.get('/*',function(req,res){
-//   console.log("at base url, so that's something...");
+app.get('/*',function(req,res){
+  console.log("at base url, so that's something...");
 
   app.get('/:db', function (req, res) {
     var db = req.params.db;

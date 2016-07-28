@@ -11,6 +11,7 @@ console.log('this ran from studentRoute.js');
 router.post('/', function(req, res) {
   var results = [];//mherman
   var data = {text:req.body.text, complete: false};//mherman
+
   pg.connect(connectionString, function(err, client, done) {
       //handle connection errors
     if(err){
