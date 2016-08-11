@@ -3,37 +3,37 @@ myApp.controller('DeleteStudentController', ['$scope', '$http', function ($scope
 
   $scope.DeleteStudent = function () {
 
-              var data = $.param({
-                id:$scope.id,
-                first: $scope.firstName,
-                last: $scope.lastName,
-                lessonDay: $scope.lessonDay,
-                lessonTime: $scope.lessonTime,
-                email: $scope.email,
-                phoneNumber: $scope.phoneNumber,
-                currentBalance: $scope.currentBalance,
-                makeupLessons: $scope.makeupLessons,
-                waitList: $scope.waitList,
-                lessonRate: $scope.lessonRate
+    var data = $.param({
+      id:$scope.id,
+      first: $scope.firstName,
+      last: $scope.lastName,
+      lessonDay: $scope.lessonDay,
+      lessonTime: $scope.lessonTime,
+      email: $scope.email,
+      phoneNumber: $scope.phoneNumber,
+      currentBalance: $scope.currentBalance,
+      makeupLessons: $scope.makeupLessons,
+      waitList: $scope.waitList,
+      lessonRate: $scope.lessonRate
 
-              });
+    });
 
-              $http({
+    $http({
 
-                method: 'delete',
-                url:'/students',
-                data: studentToDelete
+      method: 'delete',
+      url:'/students',
+      data: studentToDelete
 
-              }).then( function (response){
+    }).then( function (response){
 
-                console.log(response);
-                 //if err, then blah --- do this - SQL mojo
-                 loadStudents();
-               });//end .then function
+      console.log(response);
+       //if err, then blah --- do this - SQL mojo
+       loadStudents();
+     });//end .then function
 
 
-          };//end Delete Student Function
-  
+};//end Delete Student Function
+
 
   // $scope.updateSchedule = function(){
   //   console.log("Boom! Schedule Updated!");
