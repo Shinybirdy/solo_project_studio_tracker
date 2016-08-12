@@ -240,3 +240,9 @@ update{
 
 
  }
+md-card-header{
+  font-size: 42px;
+  font-weight: bold;
+  text-align: center;
+  color:green;
+}
