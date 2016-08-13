@@ -4,7 +4,7 @@ var router = express.Router();//var passport = require('passport');
 var path = require('path');
 var pg = require('pg');
 var connectionString = require("../modules/connection");
-console.log('this ran from studentRoute.js');
+// console.log('this ran from studentRoute.js');
 
 // Here is the POST request with new user data----------------------------------
 router.post('/', function(req, res) {
