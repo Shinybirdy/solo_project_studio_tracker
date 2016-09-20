@@ -1,50 +1,88 @@
 console.log("Hey - from app.js");
 //server side
-//var cool = require('cool-ascii-faces');
+//Require Node Modules
 var express = require('express');
-var app = express();
 var bodyParser = require('body-parser');
+var session = require('express-session');
+
 var path = require('path');
 
 //postgres server connection
 var pg = require('pg');
 var connectionString = require("./modules/connection");
+/** Require Custom App Modules */
+var passport = require('./auth/passport');
+var configs = require('./config/auth');
+//var index = require('./routes/index');
+var auth = require('./routes/auth');
+var isLoggedIn = require('./utils/auth');
+var private = require('./routes/private/index');
+var database = require('./utils/database');
 
+//Express App Config
+var app = express();
+app.use(express.static('public'));
 //body-parser middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+//Database Connection Handling
+//database();
+//Session Creation and Storage
+//**Creates session that will be stored in memory.
+// @todo Before deploying to production,
+// configure session store to save to DB instead of memory (default).
+// @see {@link https://www.npmjs.com/package/express-session}
+//
 
-//server
-app.set("port",(process.env.PORT||5000));
+app.use(session({
+  secret: configs.sessionVars.secret,
+  key: 'user',
+  resave: 'true',
+  saveUninitialized: false,
+  cookie: { maxage: 60000, secure : false },
 
-app.listen( app.get("port"), function(){
-  console.log("Server is listening on port 5000, darling...");
-});
-
-//set static page
-app.use(express.static('public'));
-
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+}));
+//Passport
+app.use(passport.initialize()); // kickstart passport
+/**
+* Alters request object to include user object.
+* @see (@link auth/passport)
+*/
+app.use(passport.session());
 
 //Route inclusion .js files
 var login = require("./routes/login");
 var studentRoute = require("./routes/studentRoute");
 var masterSchedule = require("./routes/master_schedule");
 
-//var router = require('./routes/router');
+/** Routes **/
 
-//Passport syntax to go here:HA HA HA HA HA HA HA.....
+app.use('/auth', auth);
+app.use('/private', isLoggedIn, private);
+app.use('/', index);
 
-//routes
 app.use('/login', login);
 app.use('/students', studentRoute);
 app.use('/master_schedule', masterSchedule);
 
+/**Server Start **/
+app.set("port",(process.env.PORT||5000));
+
+app.listen( app.get("port"), function(){
+  console.log("Server is listening on port 5000, darling...");
+});
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+
+
+//var router = require('./routes/router');
 
 //code from Heroku node.js set up////
 //pg.defaults.ssl = true;
 
-//base url & index file
+/** Base url & Index File  Hit DB**/
 app.get('/*',function(req,res){
   console.log("at base url, so that's something...");
 

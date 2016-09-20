@@ -4,35 +4,31 @@
     <meta charset="utf-8">
     <title>Music Studio Tracker</title>
     <script src="/vendors/angular.min.js" type="text/javascript"></script>
-    <!-- <script src="/vendors/angular.min.js.map" type="text/javascript"></script> -->
     <script src="/vendors/angular-route/angular-route.min.js" type="text/javascript"></script>
-    <script src="vendors/x_GSDK_1.3.2 copy/jquery/jquery-1.10.2.js"></script>
-    <script src="vendors/x_GSDK_1.3.2 copy/jquery/jquery-ui.custom.min.js"></script>
-    <script src="/scripts/clientapp.js" type="text/javascript"></script>
-
-
-   <script type="text/javascript" src="/scripts/controllers/HomeController.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/LoginController.js"></script>
+    <script src="/scripts/clientapp.js"></script>
+    <script src="/scripts/services/authFactory.js"></script>
+    <script src="/scripts/controllers/navController.js"></script>
+    <script src="/scripts/controllers/authController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/HomeController.js"></script>
     <!-- <script type="text/javascript" src="/scripts/controllers/MasterScheduleController.js"></script> -->
-  <script type="text/javascript" src="/scripts/controllers/StudentController.js"></script>
-  <script type="text/javascript" src="/scripts/controllers/StudioPoliciesController.js"></script>
-  <script type="text/javascript" src="/scripts/controllers/WorksheetController.js"></script>
-
+    <script type="text/javascript" src="/scripts/controllers/StudentController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/StudioPoliciesController.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/WorksheetController.js"></script>
 
     <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="/vendors/bootstrap.min.css.map" />
-    <!-- <link rel="stylesheet" href="/vendors/x_GSDK_1.3.2 copy/assets/css/get-shit-done.css"/> -->
-
-
     <link rel="stylesheet" href="/styles/style.css" />
 
   </head>
 
   <body ng-app = "myApp">
-
+    <header ng-controller="NavController as nav">
     <!-- <header ng-include = "'/views/templates/header.html'"></header> -->
-    <nav ng-include = "'/views/templates/nav.html'"></nav>
+      <nav ng-include = "'/views/templates/nav.html'"></nav>
 
+
+    </header>
+    
     <main ng-view></main>
 
     <footer ng-include="'/views/templates/footer.html'"></footer>
