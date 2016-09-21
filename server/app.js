@@ -4,7 +4,7 @@ console.log("Hey - from app.js");
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+var localStrategy = require('passport-local').Strategy;
 var path = require('path');
 
 //postgres server connection
@@ -42,14 +42,71 @@ app.use(session({
   cookie: { maxage: 60000, secure : false },
 
 }));
-//Passport
+//Initialize Passport
 app.use(passport.initialize()); // kickstart passport
 /**
 * Alters request object to include user object.
 * @see (@link auth/passport)
 */
 app.use(passport.session());
+passport.use('local', new localStrategy({ passReqToCallback : true, usernameField: 'username' },
+  function(req, username, password, done) {
+    console.log('called local - pg');
 
+        var user = {};
+
+          var query = client.query("SELECT * FROM users WHERE username = $1", [username]);
+
+          query.on('row', function (row) {
+            console.log('User obj', row);
+            console.log('Password', password);
+            user = row;
+            if(password == user.password){
+              console.log('match!');
+              done(null, user);
+            } else {
+              done(null, false, { message: 'Incorrect username and password.' });
+            }
+
+          });
+
+          // After all data is returned, close connection and return results
+          query.on('end', function () {
+              client.end();
+          });
+
+          // Handle Errors
+          if (err) {
+              console.log(err);
+          }
+      }));
+
+
+
+passport.serializeUser (function(user, done) {
+  done(null, user.id);
+});
+pasport.deserializeUser(function(id, done){
+  console.log('called deserializeUser - pg');
+  var quert= client.query("SELECT * FROM users WHERE id = $1", [id]);
+
+            query.on('row', function (row) {
+              console.log('User row', row);
+              user = row;
+              done(null, user);
+            });
+
+            // After all data is returned, close connection and return results
+            query.on('end', function () {
+                client.end();
+            });
+
+            // Handle Errors
+            if (err) {
+                console.log(err);
+            }
+        });
+})
 //Route inclusion .js files
 var login = require("./routes/login");
 var studentRoute = require("./routes/studentRoute");
