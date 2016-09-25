@@ -1,27 +1,24 @@
-<div class = "loginpage">
-  <!-- <img src="views/hirespiano.jpeg" alt="piano pic" /> -->
-  <div class="wrapper">
-    <form class="form-signin" action="/" method="post">
-      <h2 class="form-signin-heading">The Music Studio Tracker</h2>
-        <h3>more time for music</h3>
+<form class="form-signin" action="/" method="post">
+  <div>
+    <h2 class="form-signin-heading">The Music Studio Tracker</h2>
+      <h3>more time for music</h3>
+
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" ng-model="userName" placeholder="User Name, Sweetie..." required="" autofocus="" /><br />
+
         <label for="password">Password:</label>
-        <input type = "password" name="password" ng-model="password" id="password" placeholder="top secret password goes here"  required=""/><br />
-        <button class="btn btn-lg btn-primary btn-block" a href="#students" type="submit" name="logInButton" value="logInButton">Login</button>
+        <input type = "password" name="password" ng-model="password" id="password" placeholder="top secret password goes here"  required="" autofocus="" /><br />
+
+        <button class="btn btn-lg btn-primary btn-block" a href="/logIn" type="submit" name="logInButton" value="logInButton">Login</button>
         <!-- Consider this the main view -->
-<h2>Login Page</h2>
+
 <!-- Shown for users that are NOT logged in -->
-<section ng-hide="auth.loggedIn">
-  <!-- I got this button image from Googles sign-in button brand guidelines page -->
-  <a href= "/auth/google"><img src="/public/assets/btn_google_signin_dark_normal_web.png" /></a>
-</section>
+
 <!-- Shown for users that are logged in -->
-<section ng-show="auth.loggedIn">
-  <p>
-    You are logged in!
-  </p>
-</section>
-    </form>
+      
+          <p>
+            You are logged in!
+          </p>
+        </section>
   </div>
-</div>
+</form>

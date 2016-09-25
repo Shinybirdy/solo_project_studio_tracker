@@ -1,8 +1,14 @@
-myApp.controller('AuthController', function(AuthFactory) {
-  var _this = this;
-  var authFactory = AuthFactory;
-  _this.loggedIn = authFactory.checkLoggedIn();
-  console.log('log in  controller is running');
+myApp.controller('AuthController', ['$scope', '$http', function ($scope, $http) {
+console.log("student controller is running!!!");
+var authenticateUser = function(){
 
+   $http({
+    method: "GET",
+     url: "/users",
+   }).then( function( response ){
+    $scope.user = response.data;
+    console.log("for real!");
+  });
+};
   $scope.message = "Log In Controller!";
-});
+}]);

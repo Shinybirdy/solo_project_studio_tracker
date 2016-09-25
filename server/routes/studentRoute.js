@@ -78,7 +78,7 @@ router.get('/', function(req,res){
 
 //After all data is returned, close connection and return results
     studentQuery.on ( 'end', function(){
-      console.log("all Students!", allStudents);
+      //console.log("all Students!", allStudents);
       return res.json( allStudents );
     });
     //Handle connection errors
@@ -92,14 +92,15 @@ router.delete ('/', function( req, res ){
   console.log('going to delete!');
   pg.connect( connectionString, function( err, client, done){
     console.log("req.body.id  ", req.body);
-  });
-  var deleteQuery = client.query ('DELETE from students WHERE id=' + req.body.id+ ';');
-  if(err){
-    res.sendStatus(500);
-  }else{
-    res.sendStatus(200);
-  }
+  var deleteQuery = client.query('DELETE from students WHERE id=' + req.body.id+ ';');
+
+    if(err){
+      res.sendStatus(500);
+    }else{
+      res.sendStatus(200);
+    }
   done();
   res.end();
+    });
 });//end DELETE
 module.exports = router;
