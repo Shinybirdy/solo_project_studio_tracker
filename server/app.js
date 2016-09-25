@@ -1,6 +1,5 @@
 console.log("Hey - from app.js");
 //server side
-//var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -17,7 +16,7 @@ app.use(bodyParser.json());
 app.set("port",(process.env.PORT||5000));
 
 app.listen( app.get("port"), function(){
-  console.log("Server is listening on port 5000, darling...");
+  console.log("Mama is listening on port 5000, darling...");
 });
 
 //set static page
