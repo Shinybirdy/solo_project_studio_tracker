@@ -13,6 +13,11 @@ myApp.config(["$routeProvider", function($routeProvider){
       controller: "AuthController",
       controllerAs: "auth"
     }).
+    when("/register", {
+      templateUrl:"/views/register.html",
+      controller: "AuthController",
+      controllerAs: "auth"
+    }).
     when("/students", {
       templateUrl:"/views/students.html",
       controller:"StudentController",
