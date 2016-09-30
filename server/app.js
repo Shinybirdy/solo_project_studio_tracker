@@ -1,14 +1,16 @@
-console.log("Hey - from app.js");
 //server side
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var path = require('path');
 
-//postgres server connection
-var pg = require('pg');
 var connectionString = require("./modules/connection");
+var path = require('path');
+var pg = require('pg');
+  var client = new pg.Client();
+var router = express.Router();
+var users = require('./routes/user');
 
+<<<<<<< HEAD
 //body-parser middleware
 app.use(bodyParser.json());
 
@@ -20,36 +22,40 @@ app.listen( app.get("port"), function(){
 });
 
 //set static page
+=======
+>>>>>>> passport
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
 
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+var index = require('./routes/index');
+var masterSchedule = require("./routes/master_schedule");
+var register = require('./routes/register');
+var studentRoute = require("./routes/studentRoute");
+//var topSecret = require('./routes/topsecret');
+var user = require("./routes/user");
+
+app.use('/', index);
+app.use('/master_schedule', masterSchedule);
+app.use('/register', register);
+app.use('/students', studentRoute);
+app.use('/user', user);
 
 //Route inclusion .js files
-var login = require("./routes/login");
-var studentRoute = require("./routes/studentRoute");
-var masterSchedule = require("./routes/master_schedule");
+//var auth = require("./routes/auth");
 
-//var router = require('./routes/router');
+/** Routes **/
+//app.use('/topsecret', topSecret);
+/**Server Start **/
+app.set("port",(process.env.PORT||5000));
+app.listen( app.get("port"), function(){
+  console.log("Server is listening on port 5000, darling...");
+});
 
-//Passport syntax to go here:HA HA HA HA HA HA HA.....
-
-//routes
-app.use('/login', login);
-app.use('/students', studentRoute);
-app.use('/master_schedule', masterSchedule);
-
-
-//code from Heroku node.js set up////
-//pg.defaults.ssl = true;
-
-//base url & index file
+/** Base url & Index File  Hit DB**/
 app.get('/*',function(req,res){
-  console.log("at base url, so that's something...");
-
   app.get('/:db', function (req, res) {
     var db = req.params.db;
-
     pg.connect(connectionString, function(err, client, done) {
 
       if (err){
@@ -68,10 +74,7 @@ app.get('/*',function(req,res){
 
   var file= req.params[0]||"/views/index.html";
   res.sendFile(path.join(__dirname,"/public", file));
-  //res.sendFile(path.resolve("views/index.html"));
+
 });
 
-
-
-// app.use('/', router);
 module.exports=app;
