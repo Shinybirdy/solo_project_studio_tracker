@@ -10,20 +10,6 @@ var pg = require('pg');
 var router = express.Router();
 var users = require('./routes/user');
 
-<<<<<<< HEAD
-//body-parser middleware
-app.use(bodyParser.json());
-
-//server
-app.set("port",(process.env.PORT||5000));
-
-app.listen( app.get("port"), function(){
-  console.log("Mama is listening on port 5000, darling...");
-});
-
-//set static page
-=======
->>>>>>> passport
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
