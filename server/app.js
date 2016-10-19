@@ -2,6 +2,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var passport = require("passport");
+var LocalStrategy = require('passport-local').Strategy;
 
 var connectionString = require("./modules/connection");
 var path = require('path');
@@ -13,6 +15,8 @@ var users = require('./routes/user');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 var index = require('./routes/index');
 var masterSchedule = require("./routes/master_schedule");

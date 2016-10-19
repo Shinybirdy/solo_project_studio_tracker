@@ -1,19 +1,28 @@
 <form class="form-signin" action="/" method="post">
-  <div>
-    <h3 class="form-signin-heading">Registered Users LogIn:</h3>
+  <p>Register as a Music Studio Tracker User</p>
+    <label for="newUsername">Create Username:</label>
+    <input type="text" name="newUsername" id="newUsername" ng-model="newUserName" required="" autofocus=""/>
 
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" ng-model="userName" required="" autofocus="" /><br />
 
-        <label for="password">Password:</label>
-        <input type = "password" name="password" ng-model="password" id="password" required="" autofocus="" /><br />
+        <label for="newPassword"> Compose a Password:</label>
+        <input type="newPassword" name="newPassword" id="newPassword" ng-model="newPassword" required="" autofocus=""/>
 
-        <button class="btn btn-lg btn-primary btn-block" a href="/logIn" type="submit" name="logInButton" value="logInButton">Login</button>
-        <!-- Consider this the main view -->
+        <input type="submit" value="Register" />
+</form>
 
+<hr />
+
+<form class="form-signin">
+  <p>Registered Users LogIn:  </p>
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" ng-model="userName" required="" autofocus="" /><br />
+
+    <label for="password">Password:</label>
+    <input type = "password" name="password" ng-model="password" id="password" required="" autofocus="" /><br />
+
+    <button class="btn btn-lg btn-primary btn-block" a href="/logIn" type="submit" name="logInButton" value="logInButton">Login</button>
+    <!-- Consider this the main view -->
+</form>
 <!-- Shown for users that are NOT logged in -->
 
 <!-- Shown for users that are logged in -->
-
-  </div>
-</form>

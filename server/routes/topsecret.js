@@ -22,8 +22,15 @@ app.use(session({
 //Initialize Passport
 app.use(passport.initialize()); // kickstart passport
 app.use(passport.session());
+
 passport.use( new Strategy({ passReqToCallback : true, usernameField: 'username' },
-  function(req, username, password, done) {
+  function(username, password, done) {
+    User.findOne({ username: username}, function(err, user){
+      if (err){ return done(err);}
+      if (!user){ return done(null, false); }
+      if (!user.verifyPassword(password)) {return done(null, false); }
+      return done(null, user);
+    });
     console.log('called local');
       pg.connect(connectionString, function(err, client){
         console.log('called local-pg');

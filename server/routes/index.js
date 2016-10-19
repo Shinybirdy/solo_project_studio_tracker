@@ -10,11 +10,8 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public/views/index.html'));
 });
 //THIS isn't working!!!********************************
-router.post('/',
-  passport.authenticate('local', {
-    successRedirect:'/user',
-    failureRedirect: "/login"
-  }),
+router.post('/login',
+  passport.authenticate('local', {failureRedirect: "/login"}),
   function(req, res){
     res.redirect('/');
   }

@@ -1,5 +1,5 @@
 myApp.controller('AuthController', ['$scope', '$http', function ($scope, $http) {
-console.log("student controller is running!!!");
+console.log("AuthController is running!!!");
 var authenticateUser = function(){
 
    $http({
