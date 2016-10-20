@@ -1,19 +1,20 @@
-<form class="form-signin" action="/" method="post">
+<form class="form" action="/" method="post">
   <p>Register as a Music Studio Tracker User</p>
     <label for="newUsername">Create Username:</label>
     <input type="text" name="newUsername" id="newUsername" ng-model="newUserName" required="" autofocus=""/>
 
 
-        <label for="newPassword"> Compose a Password:</label>
+        <label for="newPassword"> Create Password:</label>
         <input type="newPassword" name="newPassword" id="newPassword" ng-model="newPassword" required="" autofocus=""/>
 
-        <input type="submit" value="Register" />
+        <button class="btn btn-lg btn-primary btn-block" a href="/register" type="submit" name="registerButton" value="registerButton">Register</button>
+
 </form>
 
 <hr />
 
-<form class="form-signin">
-  <p>Registered Users LogIn:  </p>
+<form class="form">
+  <p>Registered Users Log In:  </p>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" ng-model="userName" required="" autofocus="" /><br />
 
