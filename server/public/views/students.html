@@ -3,9 +3,8 @@
 <!-- Monday Students........................................................ -->
 <table class="container-fluid">
   <div class="day"><h2>Monday</h2>
-   <div ng-repeat="row in grid" flex layout="row" student in studentArray | filter:{'lesson_day':'1'}| orderBy: "'lesson_time'"
-   class = "student">
-<tr>
+   <tr ng-repeat="row in grid" flex layout="row" > </tr>
+    <tr ng-repeat="student in studentArray | filter:{'lesson_day':'1'}| orderBy: 'lesson_time'">
      <td><h2>{{student.lesson_time}} <br />
        <h3>{{student.first_name}} {{student.last_name}}<br />
          {{student.phone_number}}<br />
@@ -14,8 +13,10 @@
          <input class="btn btn-default" ng-click="updateStudent()" type="updateStudent" name = "Update" value="Update" />
          <input class="btn btn-default" ng-click="deleteStudent()" type="deleteStudent" name = "Delete" value="Delete" />
        </h2></td>
-   </tr>
- </div>
+
+
+
+</tr>
 </div>
 </table>
 <!-- Tuesday Students........................................................ -->
