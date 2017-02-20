@@ -1,8 +1,8 @@
 myApp.controller('StudentController', ['$scope', '$http', function ($scope, $http) {
 console.log("student controller is running!!!");
 //angular.module('whiteframeBasicUsage', ['ngMaterial']);
-  var studentArray =[];
-  var addStudentObjectToSend;
+  // var studentArray =[];
+  // var addStudentObjectToSend;
 
   var loadStudents = function(){
 
@@ -54,7 +54,7 @@ $scope.getStudents = function(){
 
 $scope.getStudents();
 
-var studentToDelete;
+ var studentToDelete;
 
   // DELETE Student!!!
 $scope.deleteStudent = function(){
