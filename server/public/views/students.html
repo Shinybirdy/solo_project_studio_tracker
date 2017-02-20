@@ -1,4 +1,73 @@
   <!---STUDENT LIST / SCHEDULE........................................ -->
+  <form class ="form">
+    <div class="container-fluid">
+      <h3>Add New Student</h3>
+        <form ng-submit = "addStudent()">
+          <label for="first_name">First Name:</label>
+          <input type="text" ng-model = "firstName" /><br />
+          <label for="last_name">Last Name:</label>
+          <input type="text" ng-model = "lastName" /><br />
+          <h5><span>
+    <label>Lesson Day:</label>
+      <select name="lessonDay" id="lessonDay" ng-model = "lessonDay">
+        <option value="">-------</option> <!-- not selected / blank option -->
+        <option value="1">Monday</option>
+        <option value="2">Tuesday</option>
+        <option value="3">Wednesday</option>
+        <option value="4">Thursday</option>
+        <option value="5">Friday</option>
+        <option value="6">Saturday</option>
+      </select>
+    </span>
+  </h5>
+
+  <p><span><label>Lesson Time:</label>
+
+      <select name="lessonTime" id="lessonTime" ng-model = "lessonTime" >Lesson Time:
+        <option value="">-------</option> <!-- not selected / blank option -->
+        <option value="2:00">2:00</option>
+        <option value="2:30">2:30</option>
+        <option value="3:00">3:00</option>
+        <option value="3:30">3:30</option>
+        <option value="4:00">4:00</option>
+        <option value="4:30">4:30</option>
+        <option value="5:00">5:00</option>
+        <option value="5:30">5:30</option>
+        <option value="6:00">6:00</option>
+        <option value="6:30">6:30</option>
+        <option value="7:00">7:00</option>
+        <option value="7:30">7:30</option>
+      </select>
+        </span></p>
+        <br />
+
+      <label for="email">Email:</label>
+      <input type="text" ng-model = "email" /><br />
+
+      <label for="phone_number">Phone Number:</label>
+      <input type="text" ng-model = "phoneNumber" /><br />
+
+      <label for="current_balance">Current Balance:</label>
+      <input type="text" ng-model = "currentBalance" /><br />
+
+      <p><span><label>Lesson Rate:</label>
+        <select name="lessonRate" id= "lessonRate" ng-model = "lessonRate">Lesson Rate:
+          <option value="">--------</option><!-- not selected / blank option -->
+          <option value="30.00">$30.00</option>
+          <option value="40.00">$40.00</option>
+          <option value="45.00">$45.00</option>
+          <option value="60.00">$60.00</option>
+          <option value="90.00">$90.00</option>
+        </select>
+          </span><br />
+
+  <input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" /></p><br />
+
+      </form>
+    </div>
+  </form>
+
+
 <h1>Student List and Schedule</h1>
 <!-- Monday Students........................................................ -->
 <table class="container-fluid">
@@ -101,70 +170,3 @@
           </tr>
         </div>
        </table>
-<form class ="form">
-  <div class="container-fluid">
-    <h3>Add New Student</h3>
-      <form ng-submit = "addStudent()">
-        <label for="first_name">First Name:</label>
-        <input type="text" ng-model = "firstName" /><br />
-        <label for="last_name">Last Name:</label>
-        <input type="text" ng-model = "lastName" /><br />
-        <h5><span>
-  <label>Lesson Day:</label>
-    <select name="lessonDay" id="lessonDay" ng-model = "lessonDay">
-      <option value="">-------</option> <!-- not selected / blank option -->
-      <option value="1">Monday</option>
-      <option value="2">Tuesday</option>
-      <option value="3">Wednesday</option>
-      <option value="4">Thursday</option>
-      <option value="5">Friday</option>
-      <option value="6">Saturday</option>
-    </select>
-  </span>
-</h5>
-
-<p><span><label>Lesson Time:</label>
-
-    <select name="lessonTime" id="lessonTime" ng-model = "lessonTime" >Lesson Time:
-      <option value="">-------</option> <!-- not selected / blank option -->
-      <option value="2:00">2:00</option>
-      <option value="2:30">2:30</option>
-      <option value="3:00">3:00</option>
-      <option value="3:30">3:30</option>
-      <option value="4:00">4:00</option>
-      <option value="4:30">4:30</option>
-      <option value="5:00">5:00</option>
-      <option value="5:30">5:30</option>
-      <option value="6:00">6:00</option>
-      <option value="6:30">6:30</option>
-      <option value="7:00">7:00</option>
-      <option value="7:30">7:30</option>
-    </select>
-      </span></p>
-      <br />
-
-    <label for="email">Email:</label>
-    <input type="text" ng-model = "email" /><br />
-
-    <label for="phone_number">Phone Number:</label>
-    <input type="text" ng-model = "phoneNumber" /><br />
-
-    <label for="current_balance">Current Balance:</label>
-    <input type="text" ng-model = "currentBalance" /><br />
-
-    <p><span><label>Lesson Rate:</label>
-      <select name="lessonRate" id= "lessonRate" ng-model = "lessonRate">Lesson Rate:
-        <option value="">--------</option><!-- not selected / blank option -->
-        <option value="30.00">$30.00</option>
-        <option value="40.00">$40.00</option>
-        <option value="45.00">$45.00</option>
-        <option value="60.00">$60.00</option>
-        <option value="90.00">$90.00</option>
-      </select>
-        </span><br />
-
-<input class="btn btn-default" ng-click="addStudent()" type="addStudent" name = "addStudent" value="addStudent" /></p><br />
-
-    </form>
-  </div>
-</form>

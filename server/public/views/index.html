@@ -24,15 +24,11 @@
   <body ng-app = "myApp">
 
     <header ng-controller="NavController as nav">
-
-    <!-- <header ng-include = "'/views/templates/header.html'"></header> -->
-      <nav ng-include = "'/views/templates/nav.html'"></nav>
-
-
+      <!-- <header ng-include = "'/views/templates/header.html'"></header> -->
+    <nav ng-include = "'/views/templates/nav.html'"></nav>
     </header>
 
-    <main ng-view>
-    </main>
+    <main ng-view></main>
 
 
     <footer ng-include="'/views/templates/footer.html'"></footer>
