@@ -67,4 +67,31 @@ app.get('/*',function(req,res){
 
 });
 
+/** Delete  Hit DB**/
+
+
+// app.delete('/students',function(req,res){
+//   app.delete('/:db', function (req, res) {
+//     var db = req.params.db;
+//     pg.connect(connectionString, function(err, client, done) {
+//
+//       if (err){
+//         res.sendStatus(500);
+//       }
+//
+//       client.query('DELETE * FROM students', function(err, result) {
+//         done();
+//         if (err)
+//          { console.error(err); response.send("Error " + err); }
+//         else
+//          { response.render('pages/db', {results: result.rows} ); }
+//       });
+//     });
+//   });
+//
+//   var file= req.params[0]||"/views/index.html";
+//   res.sendFile(path.join(__dirname,"/public", file));
+//
+// });
+
 module.exports=app;
